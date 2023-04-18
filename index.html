@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Network Details Card</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const date = now.toLocaleDateString();
+      const time = now.toLocaleTimeString();
+      document.getElementById("date").textContent = date;
+      document.getElementById("time").textContent = time;
+    }
+    setInterval(updateTime, 1000);
+    // function to get IP address
+    function getIPAddress() {
+      fetch("https://api.ipify.org/?format=json")
+        .then((response) => response.json())
+        .then((data) => {
+          const ipAddress = data.ip;
+          document.getElementById("ip-address").textContent = ipAddress;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+
+    // call the function to get IP address on page load
+    window.onload = getIPAddress;
+  </script>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/docs/4.0/assets/brand/bootstrap-solid.svg"
+            width="30"
+            height="30"
+            alt="Logo"
+          />
+          My Website
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <form class="form-inline my-2 my-lg-0 ml-auto">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </nav>
+      <center>
+        <h1 style="color: coral">
+          Welcome to Naveen reddy docker sample image
+        </h1>
+      </center>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-header">
+              <h4>Your device information</h4>
+            </div>
+            <div class="card-body">
+              <p>IP Address: <span id="ip-address"></span></p>
+              <p>Date: <span id="date"></span></p>
+              <p>Time: <span id="time"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <center>
+      <iframe
+        src="https://giphy.com/embed/u2pmTWUi0MXjyrMaVj"
+        width="480"
+        height="480"
+        frameborder="0"
+        class="giphy-embed"
+        allowfullscreen
+      ></iframe>
+      <p>
+        <a
+          href="https://giphy.com/gifs/CapgeminiIndia-coding-techchallenge2020-techchallenge-u2pmTWUi0MXjyrMaVj"
+          >via GIPHY</a
+        >
+      </p>
+    </center>
+  </body>
+</html>
